@@ -1,0 +1,44 @@
+# Playbook to setup workstation and create osp network, router, SG and ssh keypair
+
+- hosts: localhost
+  tasks:
+  - name: Create workstation inventory
+    add_host:
+       name: "workstation-{{OSP_GUID}}.rhpds.opentlc.com"
+       group: workstation
+
+
+- hosts: workstation
+  become: yes
+  roles:
+    - setup-workstation
+#    - osp-instances
+
+
+- hosts: workstation
+  tasks:
+##Create Fronend Instance
+  - name: Create frontend instance
+    include_role:
+       name: osp-instances
+       vars_from: frontend.yaml
+###Create App1 server
+  - name: Create app1 instance
+    include_role:
+       name: osp-instances
+       vars_from: app1.yaml
+##Create App2 server
+  - name: Create app2 instance
+    include_role:
+       name: osp-instances
+       vars_from: app2.yaml
+##Create DB server
+  - name: Create db instance
+    include_role:
+       name: osp-instances
+       vars_from: db.yaml
+
+
+#- import_playbook: site.yaml 
+- import_playbook: site-install-isolated-node.yml 
+
