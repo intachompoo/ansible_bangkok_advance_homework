@@ -40,5 +40,5 @@
 
 
 #- import_playbook: site.yaml 
-- import_playbook: site-install-isolated-node.yml 
+#- import_playbook: site-install-isolated-node.yml 
 
