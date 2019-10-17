@@ -1,9 +1,4 @@
 ---
-- hosts: osp
-  gather_facts: true
-  roles:
-  - name: osp-facts
-
 - name: Setup frontend load-balancer tier
   hosts: frontends
   gather_facts: false
