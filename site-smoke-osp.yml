@@ -8,7 +8,9 @@
     register: openstack_info
     tags:
       - osp.smoke
-  #- name: Curl website
+  - name: Curl website
+    uri:
+      url: http://frontend
 
 
   - name: Fail if 'Ansible has done its job' is not in the page content
