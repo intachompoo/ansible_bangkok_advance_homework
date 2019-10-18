@@ -10,9 +10,7 @@
       - osp.smoke
 
   - name: Curl website
-    command: http://{{ item.public_v4 }}
-    tags:
-      - osp.smoke
+    command: curl "http://{{item.public_v4}}"
     with_items: "{{openstack_info.ansible_facts.openstack_servers}}"
     register: webpage
   - debug: var=webpage.stdout
