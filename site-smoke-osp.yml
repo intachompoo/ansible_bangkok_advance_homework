@@ -11,10 +11,12 @@
   - name: Curl website
     uri:
       url: http://frontend
-
-
-  - name: Fail if 'Ansible has done its job' is not in the page content
-    fail:
-    when: "'Ansible has done its job' not in webpage.results[0].content"
-    tags:
+    tag:
       - osp.smoke
+
+
+  #- name: Fail if 'Ansible has done its job' is not in the page content
+  #  fail:
+  #  when: "'Ansible has done its job' not in webpage.results[0].content"
+  #  tags:
+  #    - osp.smoke
