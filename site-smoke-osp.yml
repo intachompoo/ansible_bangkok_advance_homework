@@ -10,8 +10,7 @@
       - osp.smoke
 
   - name: Curl website
-    uri:
-     url: http://{{ item.public_v4 }}
+    command: http://{{ item.public_v4 }}
     tags:
       - osp.smoke
     with_items: "{{openstack_info.ansible_facts.openstack_servers}}"
@@ -20,5 +19,3 @@
   - name: Fail if 'Ansible has done its job' is not in the page content
     fail:
     when: "'Ansible has done its job' not in webpage.results[0].stdout"
-    tags:
-      - osp.smoke
