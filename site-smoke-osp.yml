@@ -10,12 +10,8 @@
       - osp.smoke
 
   - name: Curl website
-    os_server_facts:
-     cloud: ospcloud
-     server: 'frontend'
-    register: openstack_info
-      uri:
-        url: http://frontend
+    uri:
+     url: http://10.10.10.8
     tags:
       - osp.smoke
 
