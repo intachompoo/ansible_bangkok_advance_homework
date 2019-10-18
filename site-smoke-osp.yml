@@ -14,8 +14,8 @@
      cloud: ospcloud
      server: 'frontend'
     register: openstack_info
-    uri:
-      url: http://frontend
+      uri:
+        url: http://frontend
     tags:
       - osp.smoke
 
